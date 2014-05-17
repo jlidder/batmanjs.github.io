@@ -1,0 +1,5 @@
+<li>
+  <a href="#{{ entry.id }}">
+      {% if s.meta.level == 'class' %}@{% else %}::{% endif %}{{ s.title }}{% if entry.meta.params %}{% if entry.meta.type == 'property' %}<span class="params">{{ entry.meta.params }}</span>{% else %}<span class="params">({{ entry.meta.params }})</span>{% endif %}{% endif %}{% if entry.meta.returnType %}<span class="return-type"> : {{ entry.meta.returnType }}</span>{% endif %}
+  </a>
+</li>
