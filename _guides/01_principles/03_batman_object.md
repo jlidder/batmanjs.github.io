@@ -18,7 +18,7 @@ comment.set("mood", "pensive")
 comment.get("mood") # => "pensive"
 ```
 
-Properties are _always_ accessed with `get` and `set`. Batman.js depends on `get` and `set` for mainaining bindings throughout your application.
+Properties are _always_ accessed with `get` and `set`. Batman.js depends on `get` and `set` for maintaining bindings throughout your application.
 
 ### @accessor
 
