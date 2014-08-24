@@ -8,9 +8,9 @@ var ApiSearch = (function() {
   var renderedTemplatePartials = {};
   var tmplSearchResultGroup;
 
-  // arrows, enter, esc...
+  // arrows and enter
   // actions speak louder than words!
-  var nonQueryKeycodes = [40, 38, 13, 27];
+  var nonQueryKeycodes = [40, 38, 13];
 
   var redirectTo = function(href) {
     if (href !== null && typeof(href) !== 'undefined') {
@@ -43,10 +43,6 @@ var ApiSearch = (function() {
       // enter
       case 13:
         redirectTo( $selected.children('a').eq(0).attr('href') );
-        break;
-      // escape
-      case 27:
-        clearResults();
         break;
       // arrows
       case 38:
@@ -146,6 +142,7 @@ var ApiSearch = (function() {
 
     $('.api-search-input').on('keyup', autocompleteSearch);
     $('.api-search-input').on('keydown', keyboardNavigation);
+    $('.api-search-input').on('blur', clearResults);
   };
 
   var clearResults = function () {
