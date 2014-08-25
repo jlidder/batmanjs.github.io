@@ -110,14 +110,17 @@ _In this example, `Artist` extended `Batman.Object`, not `Batman.Model`. This is
 
 ## Wrapping Accessors 
 
-When you want to modify an existing accessor but not override it, you can use `@wrapAccessor`. For example, to extend the `name` accessor to upcase its value:
+When you want to modify an existing accessor but not override it, you can use `@wrapAccessor`. For example, to extend the `name` accessor to upcase its value on `get`, but still `set` the value as lower case:
 
 ```coffeescript 
 class MyApp.UpcasedArtist extends MyApp.Artist
   @wrapAccessor 'name', (core) ->
     get: (key) ->
-        name = core.get.call(@, key)
-        name?.toUpperCase()
+      name = core.get.call(@, key)
+      name?.toUpperCase()
+    set: (key, value) ->
+      name = value?.toLowerCase()
+      core.set.call(@, key, name)
 ```
 
 The `@wrapAccessor` callback is invoked with `core`, which is the accessor object for the existing accessor. It has `get` and `set` keys which you may use when defining your wrapper. You must call `core.get` or `core.set` if you want the original accessor function to be executed.
