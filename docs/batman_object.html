@@ -16,7 +16,7 @@ title: Batman.Object
 <pre><code class="lang-coffeescript">comment = <span class="keyword">new</span> Batman.Object
 comment.set(<span class="string">"mood"</span>, <span class="string">"pensive"</span>)
 comment.get(<span class="string">"mood"</span>) <span class="comment"># =&gt; "pensive"</span></code></pre>
-<p>Properties are <em>always</em> accessed with <code>get</code> and <code>set</code>. Batman.js depends on <code>get</code> and <code>set</code> for mainaining bindings throughout your application.</p>
+<p>Properties are <em>always</em> accessed with <code>get</code> and <code>set</code>. Batman.js depends on <code>get</code> and <code>set</code> for maintaining bindings throughout your application.</p>
 <p><h3  class="guide-heading" id="-accessor"><a href='#-accessor'>@accessor</a></h3>
 </p>
 <p>By default, <code>get</code> and <code>set</code> simply access properties on a <a href="/docs/api/batman.object.html"><code>Batman.Object</code></a>. However, you can use <code>@accessor</code> inside class definitions to provide custom getters and setters. These functions are called <em>accessors</em>.</p>
